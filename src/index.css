@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --font-body: "Roboto", "sans-serif";
+  --font-mono: "Roboto Mono", "monospace";
+  --color-bg: #0f1112;
+  --color-accent: #8c67f7;
+  --color-primary: #c850c0;
+  --color-secondary: #4158d0;
+  --color-tertiary: #ffcc70;
+}
