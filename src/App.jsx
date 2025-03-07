@@ -1,10 +1,17 @@
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
+
 function App() {
   return (
-    <div className="bg-bg flex min-h-dvh justify-center gap-5 p-5">
-      <img src="./logo.webp" alt="Wylo Logo" className="h-10" />
-      <h1 className="text-accent text-center font-mono text-3xl font-bold uppercase">
-        Assignment
-      </h1>
+    <div className="bg-bg min-h-dvh text-white">
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<h1>Home</h1>} />
+          <Route path="/new" element={<h1>New</h1>} />
+          <Route path="/edit/:id" element={<h1>Edit</h1>} />
+        </Routes>
+      </Router>
     </div>
   );
 }
