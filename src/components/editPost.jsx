@@ -1,8 +1,8 @@
 import { createStyles } from "antd-style";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addPost } from "../features/posts/postsSlice";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { editPost } from "../features/posts/postsSlice";
+import { useNavigate, useParams } from "react-router-dom";
 import FormComponent from "./FormComponent";
 
 const useStyle = createStyles(({ prefixCls, css }) => ({
@@ -36,17 +36,26 @@ const useStyle = createStyles(({ prefixCls, css }) => ({
   `,
 }));
 
-export default function NewPost() {
+export default function EditPost() {
   const [caption, setCaption] = useState("");
   const [img, setImg] = useState(null);
 
+  const posts = useSelector((state) => state.posts.posts);
   const dispatch = useDispatch();
+  let { id } = useParams();
+  id = Number(id);
   const navigate = useNavigate();
   const { styles } = useStyle();
 
-  const handlePublish = () => {
+  useEffect(() => {
+    const currentPost = posts.find((post) => post.id == id);
+    setCaption(currentPost.text);
+    setImg(currentPost.image);
+  }, [id, posts]);
+
+  const handleUpdate = () => {
     if (!img || !caption) return;
-    dispatch(addPost({ image: img, text: caption }));
+    dispatch(editPost({ id: id, image: img, text: caption }));
     setCaption("");
     setImg(null);
     navigate("/");
@@ -54,9 +63,9 @@ export default function NewPost() {
 
   return (
     <FormComponent
-      handlerFn={handlePublish}
-      heading="New Post"
-      btnText="Create Post"
+      handlerFn={handleUpdate}
+      heading="Edit Post"
+      btnText="Update Post"
       img={img}
       setImg={setImg}
       caption={caption}
