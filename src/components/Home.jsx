@@ -60,7 +60,7 @@ export default function Home() {
         <h2 className="text-center font-mono text-3xl font-bold">
           Social Feed
         </h2>
-        <div className="grid grid-cols-3 place-items-center gap-15 p-10">
+        <div className="grid grid-cols-1 place-items-center gap-15 p-10 md:grid-cols-2 md:px-2 lg:px-10 xl:grid-cols-3">
           {posts.map((post) => (
             <Card
               key={post.id}
