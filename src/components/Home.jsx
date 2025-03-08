@@ -60,6 +60,12 @@ export default function Home() {
         <h2 className="text-center font-mono text-3xl font-bold">
           Social Feed
         </h2>
+        {posts.length == 0 && (
+          <div className="border-accent m-10 flex flex-col items-center justify-center gap-10 rounded-2xl border-2 p-10 font-mono text-2xl shadow-lg shadow-[#8c67f777]">
+            <p>No Posts Yet.</p>
+            <p> Add more posts to see them here.</p>
+          </div>
+        )}
         <div className="grid grid-cols-1 place-items-center gap-15 p-10 md:grid-cols-2 md:px-2 lg:px-10 xl:grid-cols-3">
           {posts.map((post) => (
             <Card
@@ -69,10 +75,6 @@ export default function Home() {
               caption={post.text}
             ></Card>
           ))}
-          <Card img="" caption="Caption" />
-          <Card img="" caption="Caption" />
-          <Card img="" caption="Caption" />
-          <Card img="" caption="Caption" />
         </div>
       </div>
     </section>
