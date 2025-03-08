@@ -38,7 +38,7 @@ const useStyle = createStyles(({ prefixCls, css }) => ({
 
 export default function EditPost() {
   const [caption, setCaption] = useState("");
-  const [img, setImg] = useState(null);
+  const [img, setImg] = useState("");
 
   const posts = useSelector((state) => state.posts.posts);
   const dispatch = useDispatch();
@@ -57,7 +57,7 @@ export default function EditPost() {
     if (!img || !caption) return;
     dispatch(editPost({ id: id, image: img, text: caption }));
     setCaption("");
-    setImg(null);
+    setImg("");
     navigate("/");
   };
 

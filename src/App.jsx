@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import NewPost from "./components/newPost";
 import EditPost from "./components/editPost";
+import Home from "./components/Home";
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<h1>Home</h1>} />
+          <Route path="/" element={<Home />} />
           <Route path="/new" element={<NewPost />} />
           <Route path="/edit/:id" element={<EditPost />} />
         </Routes>

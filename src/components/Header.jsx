@@ -45,7 +45,7 @@ export default function Header() {
   }, [location.pathname]);
 
   return (
-    <header className="fixed top-0 left-0 z-50 w-full p-8">
+    <header className="fixed top-0 left-0 z-50 w-full p-8 backdrop-blur-sm">
       <div className="container mx-auto flex items-center justify-between px-10 select-none">
         <Link to="/">
           <img src="./logo.webp" alt="Wylo Logo" className="h-8" />

@@ -38,7 +38,7 @@ const useStyle = createStyles(({ prefixCls, css }) => ({
 
 export default function NewPost() {
   const [caption, setCaption] = useState("");
-  const [img, setImg] = useState(null);
+  const [img, setImg] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -48,7 +48,7 @@ export default function NewPost() {
     if (!img || !caption) return;
     dispatch(addPost({ image: img, text: caption }));
     setCaption("");
-    setImg(null);
+    setImg("");
     navigate("/");
   };
 

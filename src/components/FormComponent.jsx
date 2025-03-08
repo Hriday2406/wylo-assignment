@@ -10,6 +10,7 @@ export default function FormComponent({
   setCaption,
   styles,
 }) {
+  let imgURL = typeof img == "string" ? img : URL.createObjectURL(img);
   return (
     <section className="flex h-dvh items-center justify-center">
       <div className="flex w-2/3 flex-col gap-8 rounded-2xl border-2 border-white p-5 shadow-lg shadow-[#ffffff99] select-none sm:w-1/3 lg:w-1/4 xl:w-1/5 2xl:w-1/6">
@@ -24,9 +25,9 @@ export default function FormComponent({
         >
           {img ? (
             <img
-              src={URL.createObjectURL(img)}
+              src={imgURL}
               alt="No file"
-              className="mx-auto size-48 rounded-2xl border-2 border-white object-fill p-2 shadow-lg shadow-[#ffffff99]"
+              className="mx-auto h-48 w-fit rounded-2xl border-2 border-white object-contain p-2 shadow-lg shadow-[#ffffff99]"
             />
           ) : (
             <div className="mx-auto flex size-48 items-center justify-center rounded-2xl border-2 border-white p-2 font-mono shadow-lg shadow-[#ffffff99]">
